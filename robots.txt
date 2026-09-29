@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://adminstrategy.github.io/sitemap.xml
