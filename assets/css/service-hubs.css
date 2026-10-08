@@ -228,11 +228,10 @@
 
   .breadcrumb{padding:24px 0; color:var(--ink-500); font-size:13px;}
   .breadcrumb ol{display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:0; padding:0;}
-  .breadcrumb li+li::before{content:'/'; margin-right:8px; color:var(--line);}
+  .breadcrumb li+li::before{content:'>';  margin-right:8px; color:var(--line);}
   .breadcrumb a:hover{text-decoration:underline;}
   .hub-intro{padding:40px 0 64px; border-bottom:1px solid var(--line);}
   .hub-intro h1{font-size:clamp(28px,3.6vw,44px); line-height:1.38; font-weight:600;}
-  .hub-intro .eyebrow{color:var(--gold-deep); font-size:14px; font-weight:600; margin:0 0 18px;}
   .hub-intro .lead{max-width:64ch; font-size:17px; color:var(--ink-700); margin:22px 0 0;}
   .hub-intro .intro-actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:30px;}
   .service-item{align-items:flex-start;}

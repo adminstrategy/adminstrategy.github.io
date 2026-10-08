@@ -627,6 +627,7 @@
   #services{scroll-margin-top:128px;}
   #contact{scroll-margin-top:128px;}
 </style>
+<link rel="stylesheet" href="/assets/css/service-navigation.css">
 </head>
 <body>
 
@@ -637,10 +638,27 @@
       <span class="brand-sub">기업 인증·진단 컨설팅</span>
     </div>
     <div class="header-actions">
-      <a href="#services" class="service-nav">서비스 안내</a>
-      <a href="#contact" class="btn-primary">상담 신청</a>
+      <a href="/#contact" class="btn-primary">상담신청</a>
       <a href="tel:050713598568" class="btn-outline header-phone">전화 상담</a>
     </div>
+    <nav class="desktop-services" aria-label="서비스 분야">
+      <a href="/services/business-certification/">기업 인증·진단</a>
+      <a href="/services/business-planning/">사업계획·정책자금</a>
+      <a href="/services/visa/">외국인·비자</a>
+      <a href="/services/nonprofit/">비영리·단체</a>
+      <a href="/services/licensing/">인허가</a>
+    </nav>
+    <details class="mobile-services">
+      <summary>서비스</summary>
+      <nav aria-label="서비스 분야">
+      <a href="/services/business-certification/">기업 인증·진단</a>
+      <a href="/services/business-planning/">사업계획·정책자금</a>
+      <a href="/services/visa/">외국인·비자</a>
+      <a href="/services/nonprofit/">비영리·단체</a>
+      <a href="/services/licensing/">인허가</a>
+        <a href="/services/" class="all-services">전체 서비스 보기</a>
+      </nav>
+    </details>
   </div>
 </header>
 
