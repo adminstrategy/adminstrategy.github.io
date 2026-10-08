@@ -593,6 +593,7 @@
   #contact{scroll-margin-top:96px;}
   @media(max-width:480px){
     .header-inner{gap:12px; padding-top:14px; padding-bottom:14px;}
+    .header-inner{padding-left:20px; padding-right:20px;}
     .brand{min-width:0;}
     .brand-mark{font-size:18px; white-space:nowrap;}
     .header-actions{flex-shrink:0;}
@@ -602,7 +603,29 @@
     .contact .wrap{padding-right:64px; padding-left:20px;}
     form.consult{padding:20px;}
     .contact-info .phone-line{font-size:clamp(24px, 6.7vw, 32px);}
+    #services .service-item{padding:18px 12px; gap:10px;}
+    #services .service-item::before{width:24px; height:24px;}
   }
+
+  .header-inner{padding-left:28px; padding-right:28px;}
+  .service-nav{font-size:14px; font-weight:500; white-space:nowrap;}
+  .service-nav:hover{color:var(--gold-deep);}
+  @media(min-width:640px) and (max-width:900px){.brand-sub{display:none;}}
+  @media(max-width:700px){
+    .header-inner{display:grid; grid-template-columns:1fr auto; gap:10px; padding-top:14px; padding-bottom:14px;}
+    .header-actions{display:contents;}
+    .service-nav{grid-column:1 / -1; grid-row:2; justify-self:start;}
+    .header-actions .btn-primary{grid-column:2; grid-row:1;}
+  }
+  @media(max-width:480px){
+    .header-inner{padding-left:20px; padding-right:20px;}
+    .brand{min-width:0;}
+    .brand-mark{font-size:18px; white-space:nowrap;}
+    .header-actions .btn-primary{padding:10px 12px; font-size:13px; white-space:nowrap;}
+  }
+
+  #services{scroll-margin-top:128px;}
+  #contact{scroll-margin-top:128px;}
 </style>
 </head>
 <body>
@@ -610,10 +633,11 @@
 <header>
   <div class="wrap header-inner">
     <div class="brand">
-      <span class="brand-mark">행정전략연구소<span class="dot">.</span></span>
+      <a class="brand-mark" href="/">행정전략연구소<span class="dot">.</span></a>
       <span class="brand-sub">기업 인증·진단 컨설팅</span>
     </div>
     <div class="header-actions">
+      <a href="#services" class="service-nav">서비스 안내</a>
       <a href="#contact" class="btn-primary">상담 신청</a>
       <a href="tel:050713598568" class="btn-outline header-phone">전화 상담</a>
     </div>
@@ -706,97 +730,18 @@
   </div>
 </section>
 
-<section class="services">
+<section class="services" id="services">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">전문 서비스</div>
       <h2>주요 취급 인증 · 자문 영역</h2>
     </div>
     <div class="service-list">
-      <div class="service-item">
-        <div>
-          <div class="name">벤처기업확인</div>
-          <div class="desc">기술 기반 벤처기업 인증 컨설팅</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">이노비즈(Inno-Biz)</div>
-          <div class="desc">기술혁신형 중소기업 인증</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">메인비즈(Main-Biz)</div>
-          <div class="desc">경영혁신형 중소기업 인증</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">기업부설연구소 · 연구개발전담부서</div>
-          <div class="desc">설립 요건 검토부터 신고까지</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">기업 생애주기 자문</div>
-          <div class="desc">설립부터 성장 단계별 맞춤 컨설팅</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">인증 사후관리</div>
-          <div class="desc">유지 요건 점검 및 갱신 지원</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">비영리법인 설립</div>
-          <div class="desc">사단·재단법인 설립 인허가 자문</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">비자 업무</div>
-          <div class="desc">외국인 체류·비자 관련 행정 절차</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">위치정보사업자</div>
-          <div class="desc">위치정보사업 신고 및 인허가</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">위치기반서비스사업자</div>
-          <div class="desc">위치기반서비스사업 신고 지원</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">대규모점포 업무</div>
-          <div class="desc">대규모점포 등록·인허가 자문</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">정책자금</div>
-          <div class="desc">정부·지자체 정책자금 신청 자문</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">여성기업확인</div>
-          <div class="desc">여성기업 확인 신청 자문</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div>
-          <div class="name">가족친화인증</div>
-          <div class="desc">가족친화인증 신청 자문</div>
-        </div>
-      </div>
+      <a class="service-item" href="/services/business-certification/"><div><div class="name">기업 인증·진단</div><div class="desc">벤처기업확인 · 이노비즈 · 메인비즈 · 기업부설연구소 · 기타 인증</div></div></a>
+      <a class="service-item" href="/services/business-planning/"><div><div class="name">사업계획·정책자금</div><div class="desc">사업계획서 · 정책자금 · 정부지원사업 · 창업지원</div></div></a>
+      <a class="service-item" href="/services/visa/"><div><div class="name">외국인·비자</div><div class="desc">E-7 · E-6 · D-8 · F-4 · F-6 · 기타 체류업무</div></div></a>
+      <a class="service-item" href="/services/nonprofit/"><div><div class="name">비영리·단체</div><div class="desc">비영리법인 · 비영리민간단체 · 법인으로 보는 단체</div></div></a>
+      <a class="service-item" href="/services/licensing/"><div><div class="name">인허가</div><div class="desc">위치정보 · 폐기물 수집·운반업 · 대규모점포 · 기타 인허가</div></div></a>
     </div>
   </div>
 </section>
