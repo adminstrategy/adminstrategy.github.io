@@ -25,3 +25,12 @@ header .brand-sub{display:inline;}
   header .header-actions .btn-primary{padding:10px 12px; font-size:13px; white-space:nowrap;}
   .mobile-services nav{width:min(320px, calc(100vw - 40px));}
 }
+
+/* Use the existing homepage outline button on every page. */
+.btn-outline{background:transparent; border:1px solid var(--ink-900); color:var(--ink-900); padding:11px 22px; border-radius:var(--radius-s); font-weight:500;}
+.btn-outline:hover{border-color:var(--gold-deep); color:var(--gold-deep);}
+.mobile-services a[aria-current="page"]{color:var(--gold-deep);}
+select:focus-visible{outline:2px solid var(--gold-deep); outline-offset:3px;}
+
+/* Keep Korean heading words together; allow long service names to wrap. */
+h1{word-break:keep-all; overflow-wrap:anywhere;}
