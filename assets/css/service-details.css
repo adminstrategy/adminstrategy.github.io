@@ -1,0 +1,23 @@
+/* Detail pages reuse the hub palette, typography, navigation and buttons. */
+.detail-intro{padding:40px 0 56px; border-bottom:1px solid var(--line);}
+.detail-intro h1{font-size:clamp(28px,3.6vw,44px); line-height:1.38; font-weight:600; overflow-wrap:anywhere;}
+.detail-intro .lead{max-width:64ch; color:var(--ink-700); font-size:17px; margin:22px 0 0;}
+.detail-section{padding:56px 0; border-bottom:1px solid var(--line);}
+.detail-section:nth-of-type(even){background:var(--paper-deep);}
+.detail-section h2{font-size:clamp(24px,3vw,30px); font-weight:600; margin-bottom:24px;}
+.detail-section ul,.detail-section ol{max-width:72ch; padding-left:24px; margin:0; color:var(--ink-700);}
+.detail-section li{margin:12px 0; font-size:15.5px;}
+.detail-section .scope-note{max-width:72ch; margin:24px 0 0; font-size:14px; color:var(--ink-500);}
+.related-links{display:flex; flex-wrap:wrap; gap:12px;}
+.related-links a{display:inline-block; padding:12px 18px; border:1px solid var(--line); background:var(--white); font-size:14px; font-weight:500;}
+.related-links a:hover{border-color:var(--gold-deep); color:var(--gold-deep);}
+.service-item .name a{text-decoration:underline; text-underline-offset:4px;}
+.service-item .name a:hover{color:var(--gold-deep);}
+@media(max-width:480px){
+  .detail-intro{padding:24px 0 40px;}
+  .detail-section{padding:40px 0;}
+  .related-links{flex-direction:column; align-items:flex-start;}
+}
+
+.desktop-services a[aria-current="location"],.mobile-services a[aria-current="location"]{color:var(--gold-deep); text-decoration:underline; text-underline-offset:4px;}
+.scope-note+.related-links{margin-top:20px;}
