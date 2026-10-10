@@ -1,0 +1,38 @@
+/* Shared ink, gold and fine-line treatment for decorative hero graphics. */
+:root{
+  --visual-ink:var(--ink-900);
+  --visual-gold:var(--gold);
+  --visual-line:1.5;
+}
+.hero-visual{color:var(--visual-ink);}
+.hero-visual svg{display:block; overflow:visible;}
+.hero-visual .visual-line{fill:none; stroke:currentColor; stroke-width:var(--visual-line); stroke-linecap:round; stroke-linejoin:round;}
+.hero-visual .visual-gold{stroke:var(--visual-gold);}
+.hero-visual .visual-muted{opacity:.35;}
+.hero-visual .visual-dot{fill:var(--visual-gold); stroke:none;}
+.hero-visual .visual-paper{fill:var(--paper);}
+.hub-hero-grid{display:grid; grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); gap:clamp(28px,4vw,56px); align-items:center;}
+.hub-hero-copy{min-width:0;}
+.hub-visual{display:flex; align-items:center; justify-content:center; min-width:0;}
+.hub-visual svg{width:70%; height:auto; max-width:320px; aspect-ratio:6 / 5;}
+.seal.hero-visual{animation:emblem-enter .7s ease-out both;}
+.seal .emblem-arc{transform-origin:160px 160px; animation:emblem-drift 22s ease-in-out infinite;}
+@keyframes emblem-enter{from{opacity:0; transform:scale(.98);}to{opacity:1; transform:scale(1);}}
+@keyframes emblem-drift{0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}
+@media(min-width:861px){
+  .seal.hero-visual{width:min(280px,100%);}
+  .hub-visual{align-self:center;}
+  .hub-visual svg{width:87.5%; max-width:400px;}
+}
+@media(max-width:860px){
+  .hub-hero-grid{grid-template-columns:1fr; gap:28px;}
+  .hub-visual svg{width:auto; height:200px; max-width:100%;}
+}
+@media(max-width:480px){
+  .hub-hero-grid{gap:24px;}
+  .hub-visual svg{height:180px;}
+}
+@media(max-width:375px){.hub-visual svg{height:160px;}}
+@media(prefers-reduced-motion:reduce){
+  .seal.hero-visual,.seal .emblem-arc{animation:none !important; transition:none !important; transform:none; opacity:1;}
+}
