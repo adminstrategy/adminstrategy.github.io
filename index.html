@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light only">
 <meta name="theme-color" content="#F6F4EE">
-<meta name="description" content="행정컨설팅연구소는 기업 인증·진단과 사업계획·정책자금 준비를 돕습니다. 외국인·비자, 비영리·단체, 인허가 업무도 현재 상황과 요건을 먼저 살펴 준비 방향을 안내합니다.">
+<meta name="description" content="행정컨설팅연구소는 기업 인증·진단과 사업계획·정책자금 준비를 돕습니다. 외국인·비자, 비영리·단체, 인허가, 사실조사·자료 확인 업무도 현재 상황과 요건을 먼저 살펴 준비 방향을 안내합니다.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="행정컨설팅연구소 | 기업인증·정책자금·비자·비영리·인허가">
-<meta property="og:description" content="행정컨설팅연구소는 기업 인증·진단과 사업계획·정책자금 준비를 돕습니다. 외국인·비자, 비영리·단체, 인허가 업무도 현재 상황과 요건을 먼저 살펴 준비 방향을 안내합니다.">
+<meta property="og:description" content="행정컨설팅연구소는 기업 인증·진단과 사업계획·정책자금 준비를 돕습니다. 외국인·비자, 비영리·단체, 인허가, 사실조사·자료 확인 업무도 현재 상황과 요건을 먼저 살펴 준비 방향을 안내합니다.">
 <meta property="og:url" content="https://adminstrategy.github.io/">
 <link rel="canonical" href="https://adminstrategy.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
@@ -67,7 +67,7 @@ header{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1p
 .section-head .kicker{margin-bottom:12px;}
 .section-head h2{font-size:clamp(26px,2.5vw,34px);line-height:1.45;}
 .section-head p{margin-top:16px;color:var(--muted);font-size:15px;word-break:keep-all;}
-.service-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;}
+.service-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
 .service-item{display:flex;flex-direction:column;align-items:flex-start;min-width:0;min-height:216px;padding:24px 18px;background:var(--white);border:1px solid var(--gray);transition:border-color .18s ease;}
 .service-item:hover{border-color:var(--navy);}
 .service-number{font-size:12px;letter-spacing:.08em;color:var(--muted);margin-bottom:28px;}
@@ -176,6 +176,7 @@ footer{background:var(--paper);border-top:1px solid var(--gray);padding:30px 0;}
       <a href="/services/visa/">외국인·비자</a>
       <a href="/services/nonprofit/">비영리·단체</a>
       <a href="/services/licensing/">인허가</a>
+      <a href="/services/fact-finding/">사실조사·자료 확인</a>
     </nav>
     <details class="mobile-services">
       <summary>서비스</summary>
@@ -185,6 +186,7 @@ footer{background:var(--paper);border-top:1px solid var(--gray);padding:30px 0;}
       <a href="/services/visa/">외국인·비자</a>
       <a href="/services/nonprofit/">비영리·단체</a>
       <a href="/services/licensing/">인허가</a>
+      <a href="/services/fact-finding/">사실조사·자료 확인</a>
         <a href="/services/" class="all-services">전체 서비스 보기</a>
       </nav>
     </details>
@@ -198,7 +200,7 @@ footer{background:var(--paper);border-top:1px solid var(--gray);padding:30px 0;}
       <div class="eyebrow">행정·기업 실무 컨설팅</div>
       <h1><span>고객에게 필요한</span><span>행정 솔루션을 제공합니다.</span></h1>
       <p class="lead">다양한 실무 경험을 바탕으로 요건을 검토하고, 필요한 절차와 진행 방향을 정확하게 안내합니다.</p>
-      <p class="hero-fields">기업인증 · 정책자금 · 비자 · 비영리 · 인허가</p>
+      <p class="hero-fields">기업인증 · 정책자금 · 비자 · 비영리 · 인허가 · 사실조사·자료 확인</p>
       <div class="hero-cta"><a href="#contact" class="btn-primary">상담 신청</a><a href="#services" class="btn-outline">업무 분야 보기</a></div>
     </div>
     <div class="hero-process" aria-hidden="true">
@@ -215,6 +217,7 @@ footer{background:var(--paper);border-top:1px solid var(--gray);padding:30px 0;}
 <a class="service-item" href="/services/visa/"><span class="service-number">03</span><h3>외국인·비자</h3><p class="desc">체류 목적에 맞는 절차</p><span class="service-more">자세히 보기 →</span></a>
 <a class="service-item" href="/services/nonprofit/"><span class="service-number">04</span><h3>비영리·단체</h3><p class="desc">단체 목적에 맞는 제도</p><span class="service-more">자세히 보기 →</span></a>
 <a class="service-item" href="/services/licensing/"><span class="service-number">05</span><h3>인허가</h3><p class="desc">업종·관할 기준 검토</p><span class="service-more">자세히 보기 →</span></a>
+<a class="service-item" href="/services/fact-finding/"><span class="service-number">06</span><h3>사실조사·자료 확인</h3><p class="desc">공개정보·제공 자료 검토와 사실관계 정리</p><span class="service-more">자세히 보기 →</span></a>
 </div></div></section>
 <section class="trust"><div class="wrap"><div class="section-head"><div class="kicker">검토와 진행</div><h2>실무 경험을 바탕으로 필요한 요건을 검토합니다</h2><p>단순한 제도 안내에 그치지 않고, 실제 진행에 필요한 요건·자료·보완사항을 중심으로 검토합니다.</p></div><div class="trust-grid"><article class="trust-item"><h3>실무 경험</h3><p>다양한 행정업무의 진행 경험과 축적된 결과를 바탕으로 현재 상황을 검토합니다.</p></article><article class="trust-item"><h3>요건 중심 검토</h3><p>신청·등록·허가에 필요한 요건을 먼저 확인하고 준비 방향을 정리합니다.</p></article><article class="trust-item"><h3>진행 전 과정 지원</h3><p>자료 검토부터 서류 정리, 신청, 보완 대응까지 업무 흐름에 맞춰 진행합니다.</p></article></div></div></section>
 <section class="cases"><div class="wrap"><div class="section-head"><div class="kicker">업무 사례</div><h2>실제 업무 결과</h2><p>기업 인증과 인허가 업무의 실제 처리 자료 중 일부입니다.</p></div><div class="cases-grid">
@@ -257,6 +260,7 @@ footer{background:var(--paper);border-top:1px solid var(--gray);padding:30px 0;}
               <option>외국인·비자</option>
               <option>비영리·단체</option>
               <option>인허가</option>
+              <option>사실조사·자료 확인</option>
               <option selected>기타 / 잘 모르겠음</option>
             </select>
           </div>
