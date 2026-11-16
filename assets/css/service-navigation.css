@@ -34,3 +34,11 @@ select:focus-visible{outline:2px solid var(--gold-deep); outline-offset:3px;}
 
 /* Keep Korean heading words together; allow long service names to wrap. */
 h1{word-break:keep-all; overflow-wrap:anywhere;}
+
+/* Keep secondary channels available without crowding the mobile action bar. */
+.footer-channels{display:flex;flex-wrap:wrap;gap:8px 20px;}
+.footer-channels a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px;}
+@media(max-width:759px){
+ :is(.hub-redesign,body:has(> main.detail-page)) .chat-fab-stack{display:none;}
+ :is(.hub-redesign,body:has(> main.detail-page)) .mobile-call{padding-right:0;}
+}

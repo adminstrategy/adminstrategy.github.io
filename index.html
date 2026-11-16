@@ -9,12 +9,12 @@
 <meta name="theme-color" content="#F6F4EE">
 <meta name="description" content="행정컨설팅연구소는 기업 인증·진단과 사업계획·정책자금 준비를 돕습니다. 외국인·비자, 비영리·단체, 인허가, 사실조사·자료 확인 업무도 현재 상황과 요건을 먼저 살펴 준비 방향을 안내합니다.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="행정컨설팅연구소 | 기업인증·정책자금·비자·비영리·인허가">
+<meta property="og:title" content="행정컨설팅연구소 | 행정·기업 실무 컨설팅">
 <meta property="og:description" content="행정컨설팅연구소는 기업 인증·진단과 사업계획·정책자금 준비를 돕습니다. 외국인·비자, 비영리·단체, 인허가, 사실조사·자료 확인 업무도 현재 상황과 요건을 먼저 살펴 준비 방향을 안내합니다.">
 <meta property="og:url" content="https://adminstrategy.github.io/">
 <link rel="canonical" href="https://adminstrategy.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
-<title>행정컨설팅연구소 | 기업인증·정책자금·비자·비영리·인허가</title>
+<title>행정컨설팅연구소 | 행정·기업 실무 컨설팅</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -156,6 +156,9 @@ footer{background:var(--paper);border-top:1px solid var(--gray);padding:30px 0;}
 @keyframes process-node{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.035);opacity:.8;}}
 @media(min-width:1600px){header .wrap,.hero .wrap,.services .wrap,.trust .wrap,.cases .wrap{max-width:1440px;}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*,*::before,*::after{animation:none!important;transition:none!important;}}
+/* Mobile consultation keeps two clear actions and readable inputs. */
+@media(max-width:759px){.mobile-call{padding-right:0;}.chat-fab-stack{display:none;}.field input,.field select,.field textarea{font-size:16px;}}
+.new-inquiry{margin-top:12px;min-height:44px;padding:8px 16px;border:1px solid var(--navy);background:var(--white);color:var(--navy);}
 </style>
 </head>
 <body>
@@ -276,7 +279,8 @@ footer{background:var(--paper);border-top:1px solid var(--gray);padding:30px 0;}
           </label>
         </div>
         <button type="submit" class="submit-btn" id="submitBtn">상담신청</button>
-        <p class="form-note" id="formNote">내용을 확인한 뒤 연락드립니다. 급한 문의는 전화 상담을 이용해 주세요.</p>
+        <button type="button" class="new-inquiry" id="newInquiry" hidden>새 문의 작성</button>
+        <p class="form-note" id="formNote" role="status" aria-live="polite" aria-atomic="true">내용을 확인한 뒤 연락드립니다. 급한 문의는 전화 상담을 이용해 주세요.</p>
       </form></div></section>
 </main>
 
@@ -316,8 +320,34 @@ footer{background:var(--paper);border-top:1px solid var(--gray);padding:30px 0;}
   var btn = document.getElementById('submitBtn');
   var note = document.getElementById('formNote');
 
+  var topic = document.getElementById('topic');
+  var topics = {"business-certification": "기업 인증·진단", "business-planning": "사업계획·정책자금", "visa": "외국인·비자", "nonprofit": "비영리·단체", "licensing": "인허가", "fact-finding": "사실조사·자료 확인"};
+  var topicKey = new URLSearchParams(window.location.search).get('topic');
+  var requestedTopic = Object.prototype.hasOwnProperty.call(topics, topicKey) ? topics[topicKey] : null;
+  if(requestedTopic) topic.value = requestedTopic;
+  var newInquiry = document.getElementById('newInquiry');
+  var initialNote = note.textContent;
+  var submitting = false;
+  var completed = false;
+  newInquiry.addEventListener('click', function(){
+    form.reset();
+    if(requestedTopic) topic.value = requestedTopic;
+    completed = false;
+    btn.disabled = false;
+    btn.textContent = '상담신청';
+    note.textContent = initialNote;
+    note.style.color = '';
+    note.style.fontWeight = '';
+    newInquiry.hidden = true;
+    document.getElementById('name').focus();
+  });
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    if(submitting || completed) return;
+    submitting = true;
+    form.setAttribute('aria-busy', 'true');
+    note.textContent = '상담신청을 전송하고 있습니다.';
     btn.disabled = true;
     btn.textContent = '전송 중...';
 
@@ -337,7 +367,8 @@ footer{background:var(--paper);border-top:1px solid var(--gray);padding:30px 0;}
     })
     .then(function(data){
       if(data.success){
-        form.reset();
+        completed = true;
+        newInquiry.hidden = false;
         btn.textContent = '전송 완료';
         note.textContent = '상담신청이 접수되었습니다. 내용을 확인한 뒤 연락드리겠습니다.';
         note.style.color = '#3E7A4E';
@@ -355,7 +386,11 @@ footer{background:var(--paper);border-top:1px solid var(--gray);padding:30px 0;}
       note.style.color = '#B23A3A';
       note.style.fontWeight = '600';
     })
-    .finally(function(){ clearTimeout(timeout); });
+    .finally(function(){
+      clearTimeout(timeout);
+      submitting = false;
+      form.removeAttribute('aria-busy');
+    });
   });
 })();
 </script>
