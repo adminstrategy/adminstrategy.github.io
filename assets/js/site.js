@@ -1,8 +1,6 @@
 (() => {
   'use strict';
-  const root = document.getElementById('admin-site');
-  if (!root) return;
-  const menu = root.querySelector('.mobile-menu');
+  const menu = document.querySelector('.mobile-menu');
   if (menu) {
     menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.open = false; }));
     document.addEventListener('keydown', event => {
@@ -12,7 +10,10 @@
       }
     });
   }
-  const form = root.querySelector('#consultForm');
+  document.addEventListener('click', event => {
+    if (menu && menu.open && !menu.contains(event.target)) menu.open = false;
+  });
+  const form = document.querySelector('#consultForm');
   if (!form) return;
   const topics = {
     'business-certification': '기업 인증·진단',
@@ -35,7 +36,7 @@
     if (requestedTopic) form.elements.topic.value = requestedTopic;
     completed = false;
     button.disabled = false;
-    button.textContent = '상담신청';
+    button.textContent = '상담 신청';
     note.textContent = initialNote;
     delete note.dataset.state;
     newInquiry.hidden = true;
@@ -48,7 +49,7 @@
     button.disabled = true;
     button.textContent = '전송 중…';
     form.setAttribute('aria-busy', 'true');
-    note.textContent = '상담신청을 전송하고 있습니다.';
+    note.textContent = '상담 내용을 전송하고 있습니다.';
     delete note.dataset.state;
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
@@ -63,11 +64,11 @@
       completed = true;
       button.textContent = '전송 완료';
       newInquiry.hidden = false;
-      note.textContent = '상담신청이 접수되었습니다. 내용을 확인한 뒤 연락드리겠습니다.';
+      note.textContent = '상담 신청이 접수되었습니다. 확인한 뒤 연락드리겠습니다.';
       note.dataset.state = 'success';
     } catch (error) {
       button.disabled = false;
-      button.textContent = '상담신청';
+      button.textContent = '상담 신청';
       note.textContent = error.name === 'AbortError'
         ? '응답 시간이 초과되었습니다. 접수 여부는 전화로 확인해 주세요: 0507-1359-8568'
         : '전송하지 못했습니다. 다시 시도하거나 전화로 문의해 주세요: 0507-1359-8568';
