@@ -27,7 +27,7 @@
   const button = document.getElementById('submitBtn');
   const note = document.getElementById('formNote');
   const newInquiry = document.getElementById('newInquiry');
-  const initialNote = note.textContent;
+  const phoneLink = document.getElementById('formPhone');
   let pending = false;
   let completed = false;
   newInquiry.addEventListener('click', () => {
@@ -37,7 +37,8 @@
     completed = false;
     button.disabled = false;
     button.textContent = '상담 신청';
-    note.textContent = initialNote;
+    note.textContent = '';
+    phoneLink.hidden = true;
     delete note.dataset.state;
     newInquiry.hidden = true;
     form.elements.name.focus();
@@ -50,12 +51,13 @@
     button.textContent = '전송 중…';
     form.setAttribute('aria-busy', 'true');
     note.textContent = '상담 내용을 전송하고 있습니다.';
+    phoneLink.hidden = true;
     delete note.dataset.state;
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST', headers: { Accept: 'application/json' },
+      const response = await fetch(form.action, {
+        method: form.method, headers: { Accept: 'application/json' },
         body: new FormData(form), signal: controller.signal
       });
       if (!response.ok) throw new Error('HTTP ' + response.status);
@@ -70,8 +72,9 @@
       button.disabled = false;
       button.textContent = '상담 신청';
       note.textContent = error.name === 'AbortError'
-        ? '응답 시간이 초과되었습니다. 접수 여부는 전화로 확인해 주세요: 0507-1359-8568'
-        : '전송하지 못했습니다. 다시 시도하거나 전화로 문의해 주세요: 0507-1359-8568';
+        ? '응답이 늦어지고 있습니다. 접수 여부는 전화로 확인해 주세요.'
+        : '전송하지 못했습니다. 다시 시도하거나 전화로 문의해 주세요.';
+      phoneLink.hidden = false;
       note.dataset.state = 'error';
     } finally {
       clearTimeout(timeout);
